@@ -129,6 +129,8 @@ setxkbmap -option caps:swapescape
 #This changes my BASH prompt
 PS1="\[\033[1;31m\]\$ \[\033[0m\]\[\033[1;35m\]\W \[\033[0m\]\[\033[1;31m\]>>\[\033[0m\]"
 
+#Makes the termanil behave like Vim (vi) 
+set -o vi
 
 ###############################
 ###   ALIAS   ###   ALIAS   ###
@@ -136,6 +138,7 @@ PS1="\[\033[1;31m\]\$ \[\033[0m\]\[\033[1;35m\]\W \[\033[0m\]\[\033[1;31m\]>>\[\
 
 alias cdl='cd ~/Documents/codeProjects/'
 alias bin='cd ~/bin/'
+alias jstut='cd ~/Documents/codeProjects/NetNinjaNodeProject/otherProjects/jstut/'
 
 alias bashrc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc && echo -e "--> \033[0;31msource .bashrc\033[0m \n \n.bashrc has been sourced \n "'
