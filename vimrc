@@ -1,7 +1,4 @@
 
-
-
-
 """"""""""""""""""""""""""""""""""""""""
 """           VIM PLUGINS          
 """"""""""""""""""""""""""""""""""""""""
@@ -30,7 +27,7 @@ let g:onedark_termcolors=256
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
+"if (empty($TMUX))
       "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
       "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
       " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
@@ -39,7 +36,7 @@ if (empty($TMUX))
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
         set termguicolors
       endif
-endif
+"endif
 
 
 syntax on
@@ -101,13 +98,17 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "nnoremap <leader>t :Tags<CR>
 "nnoremap <leader>m :Marks<CR>
 
+"EXCLUDE FILES FROM FZF search with Vim-rooter
+"let g:rooter_patterns = ['!.git']
+"let g:rooter_autocmd_patterns = '.git/*'
+
 
 let g:fzf_tags_command = 'ctags -R'
 " Border color
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file $HOME/.config/.ignore"
 
 
 " Customize fzf colors to match your color scheme
@@ -229,6 +230,13 @@ let g:user_emmet_leader_key=','
 "Search and replace, search and check
 nnoremap <Space>sr :%s//g<Left><Left>
 nnoremap <Space>sc :%s//gc<Left><Left><Left>
+
+"FZF remap
+nnoremap <Space>ff :Files<CR>
+nnoremap <Space>fl :Rg<CR>
+nnoremap <Space>fs :BLines<CR>
+nnoremap <Space>fj :Lines<CR>
+nnoremap <Space>fh :History:<CR>
 
 """""""""""""""""""""""""""""""""""""""
 """    VIM VARIABLES AND REMAPS

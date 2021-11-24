@@ -118,7 +118,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
 ####################################################
 ### Martin Downes added the code below this line ###
 ####################################################
