@@ -8,6 +8,9 @@
 execute pathogen#infect()
 
 
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " onedark.vim override: Don't set a background color when running in a terminal;
 if (has("autocmd") && !has("gui_running"))
@@ -248,6 +251,7 @@ nnoremap <Space>fh :History:<CR>
 
 nnoremap <Space>html :-1read ~/.vim/skeletonCode/skeleton.html<CR>/JJJ<CR>cw
 nnoremap <Space>ep :-1read ~/.vim/skeletonCode/skeletonExpress.js<CR>
+nnoremap <Space>ll :-1read ~/.vim/skeletonCode/skeletonArrowFunction.js<CR>/JJJJ<CR>cw
 
 """    VIM SNIPPETS REACT
 nnoremap <Space>rsfc :-1read ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>:%s/JJJ//g<Left><Left>
