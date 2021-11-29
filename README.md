@@ -40,8 +40,21 @@ your $PATH variable. can use export
                       export PATH=~/bin:"$PATH"
 
 Run the setupConfigurationFiles.sh script
-May need to change owner
 
+Need to also get some gnome extensions.
+
+Hide Top Bar - 
+https://extensions.gnome.org/extension/545/hide-top-bar/
+
+Sound Input & Output Device Choooser - 
+https://extensions.gnome.org/extension/906/sound-output-device-chooser/
+
+Transparent Top Bar - 
+https://extensions.gnome.org/extension/3960/transparent-top-bar-adjustable-transparency/
+
+may need to go into settings and gnome tweaks to change your settings 
+how you like. Also making a custom keyboard short cut in settings to open
+the gnome-terminal --full-screen with CTRL ALT T might be desired.
 
 -------------------------------------------------------------------------
 ----    Instructions    ---    Instructions    ---   Instructions   -----

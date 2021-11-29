@@ -14,6 +14,8 @@ NOCOLOR='\033[0m'
 createEnvFile="n"
 yesOrNo="n"
 
+# only run this script from its location. do not place in bin.
+
 echo -e "${WHITE}"
 #check that we are running this script from the correct location
 if [[ ! -f ./vimrc || ! -f ./bashrc || ! -f ./tmux.conf ]]; then
@@ -36,9 +38,9 @@ if [[ ! -f $HOME/.enviornmentFile ]]; then
         echo -e "Is this the masterdesktop?"
         read yesOrNo
         if [[ $yesOrNno == "y" ]]; then
-            cat "export MASTERDESKTOP='true'" >> $HOME/.enviornmentFile
+            cat "export MASTERDESKTOP=\'true\'" >> $HOME/.enviornmentFile
         else
-            cat "export MASTERDESKTOP='false'" >> $HOME/.enviornmentFile
+            cat "export MASTERDESKTOP=\'false\'" >> $HOME/.enviornmentFile
         fi
     else
         echo -e "enviornmentFile was not created"
@@ -55,6 +57,8 @@ fi
 echo -e "Would you like to update and source .bashrc, .vimrc, .tmux.conf? (y/n)"
 read yesOrNno
 if [[ $yesOrNno == "y" ]]; then
+    mkdir -p $HOME/oldConfigs/
+
     if [[ -f $HOME/.bashrc ]]; then
         echo -e "Backed up old .bashrc to oldConfigs/bashrc"
         mv $HOME/.bashrc $HOME/oldConfigs/bashrc
