@@ -148,6 +148,22 @@ alias stm='tmux source-file ~/.tmux.conf'
 # specific to a script in ~/bin
 alias tm='tmuxboot'
 
-# script in ~/bin
+
+
+###############################
+##   ENVIORNMENT VARIABLES   ##
+###############################
+if [ -f $HOME/.enviornmentFile ]; then
+    source $HOME/.enviornmentFile
+else
+    echo "No .enviornmentFile found please creat one and set important variables"
+    echo "check https://github.com/mndowne/configurationFiles for more details"
+fi
+
+
+################################
+##   SCRIPTS   ##   SCRIPTS   ##
+################################
 backUpDotFiles
+
 

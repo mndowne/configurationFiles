@@ -37,10 +37,10 @@ has the most up-to-date dotfiles.
 need to add ~/bin (or where ever you are saving your BASH scripts) to
 your $PATH variable. can use export 
 
-                        PATH=~/bin:"$PATH"
+                      export PATH=~/bin:"$PATH"
 
-more text
-
+Run the setupConfigurationFiles.sh script
+May need to change owner
 
 
 -------------------------------------------------------------------------
