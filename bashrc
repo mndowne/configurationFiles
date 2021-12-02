@@ -126,16 +126,34 @@ fi
 setxkbmap -option caps:swapescape
 
 #This changes my BASH prompt
-PS1="\[\033[1;31m\]\$ \[\033[0m\]\[\033[1;35m\]\W \[\033[0m\]\[\033[1;31m\]>>\[\033[0m\]"
+#PS1="\[\033[1;31m\]\$ \[\033[0m\]\[\033[1;35m\]\W \[\033[0m\]\[\033[1;31m\]>>\[\033[0m\]"
+PS1="\[\033[48;5;222m\033[38;5;1m\]\$\[\033[0m\]\[\033[48;5;238m\033[38;5;222m\]\W\[\033[0m\]\[\033[48;5;1m\033[38;5;238m\]\[\033[0m\]\[\033[38;5;1m\] \[\033[0m\]"
 
 #Makes the termanil behave like Vim (vi) 
 set -o vi
+
+#This line lets you cd into a folder if without writing full path.
+shopt -s autocd
+
+################################
+##  FUNCTIONS  ##  FUNCTIONS  ##
+################################
+
+
+change_to_codeProject_dir () {            
+    cd ~/Documents/codeProjects/"$1"     
+    return 0
+}
+
+# sets the auto complete up for change_to_codeProject_dir function
+complete -W "$(ls ~/Documents/codeProjects/)" cdl
 
 ###############################
 ###   ALIAS   ###   ALIAS   ###
 ###############################
 
-alias cdl='cd ~/Documents/codeProjects/'
+alias cdl='change_to_codeProject_dir'
+
 alias bin='cd ~/bin/'
 alias jstut='cd ~/Documents/codeProjects/NetNinjaNodeProject/otherProjects/jstut/'
 
@@ -143,7 +161,9 @@ alias bashrc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc && echo -e "--> \033[0;31msource .bashrc\033[0m \n \n.bashrc has been sourced \n "'
 alias vimrc='vim ~/.vimrc'
 alias tmux.conf='vim ~/.tmux.conf'
-alias stm='tmux source-file ~/.tmux.conf'
+alias stm='tmux source-file ~/.tmux.conf && echo -e "--> \033[0;31msource-file .tmux.conf\033[0m \n \n.tmux.conf has been sourced \n "'
+
+alias youtube="youtube-dl --add-metadata -ic"
 
 # specific to a script in ~/bin
 alias tm='tmuxboot'
@@ -153,7 +173,7 @@ alias tm='tmuxboot'
 ###############################
 ##   ENVIORNMENT VARIABLES   ##
 ###############################
-if [ -f $HOME/.enviornmentFile ]; then
+if [[ -f $HOME/.enviornmentFile ]]; then
     source $HOME/.enviornmentFile
 else
     echo "No .enviornmentFile found please creat one and set important variables"

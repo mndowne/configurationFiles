@@ -138,7 +138,7 @@ command! -bang -nargs=? -complete=dir Files
 " Get text in files with Rg
 command! -bang -nargs=* Rg
 \ call fzf#vim#grep(
-\   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+\   'rg --column --line-number --no-heading --color=always --smart-case --ignore-file $HOME/.config/.ignore '.shellescape(<q-args>), 1,
 \   fzf#vim#with_preview(), <bang>0)
 
 " Ripgrep advanced
@@ -160,6 +160,10 @@ command! -bang -nargs=* GGrep
 "--------------------------------------------------------------------------
 " FZF commands
 
+" Disable Ale from checking for errors all the tim
+" I only want Ale to check when the file is saved or opened
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 
 """"""""""""""""""""""""""""""""""""""""
 """           VIM PLUGINS          
@@ -220,8 +224,10 @@ nnoremap <Space>n :noh<Return>
 
 
 
-"set the commands to save in history to 100
-set history=100
+"set the commands to save in history to 1000
+set history=1000
+
+:command Vimrc e ~/.vimrc
 
 "Use Space + t to open and close NERDTree
 nnoremap <Space>t :NERDTreeToggle<cr>
@@ -235,10 +241,14 @@ nnoremap <Space>sr :%s//g<Left><Left>
 nnoremap <Space>sc :%s//gc<Left><Left><Left>
 
 "FZF remap
+"find file names
 nnoremap <Space>ff :Files<CR>
+"find a string in a file or in a file name
 nnoremap <Space>fl :Rg<CR>
 nnoremap <Space>fs :BLines<CR>
+"find a string in the current file
 nnoremap <Space>fj :Lines<CR>
+"find a string in your command history
 nnoremap <Space>fh :History:<CR>
 
 """""""""""""""""""""""""""""""""""""""
@@ -248,13 +258,21 @@ nnoremap <Space>fh :History:<CR>
 """""""""""""""""""""""""""""""""""""""
 """    VIM SNIPPETS
 """""""""""""""""""""""""""""""""""""""
+"create a new skeleton
+nnoremap <Space>Nsk :e ~/.vim/skeletonCode/
 
 nnoremap <Space>html :-1read ~/.vim/skeletonCode/skeleton.html<CR>/JJJ<CR>cw
+nnoremap <Space>Ehtml :e ~/.vim/skeletonCode/skeleton.html<CR>
+
 nnoremap <Space>ep :-1read ~/.vim/skeletonCode/skeletonExpress.js<CR>
+nnoremap <Space>Eep :e ~/.vim/skeletonCode/skeletonExpress.js<CR>
+
 nnoremap <Space>ll :-1read ~/.vim/skeletonCode/skeletonArrowFunction.js<CR>/JJJJ<CR>cw
+nnoremap <Space>Ell :e ~/.vim/skeletonCode/skeletonArrowFunction.js<CR>
 
 """    VIM SNIPPETS REACT
-nnoremap <Space>rsfc :-1read ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>:%s/JJJ//g<Left><Left>
+nnoremap <Space>rfc :-1read ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>:%s/JJJ//g<Left><Left>
+nnoremap <Space>Erfc :e ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>
 
 """""""""""""""""""""""""""""""""""""""
 """    VIM SNIPPETS
