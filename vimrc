@@ -177,6 +177,9 @@ let g:ale_lint_on_insert_leave = 0
 set number
 set relativenumber
 
+"Change the scroll speed to 6 lines at a time
+nnoremap <C-U> 6<C-Y>
+nnoremap <C-D> 6<C-E>
 
 "to turn off line wrap
 "//set nowrap
@@ -223,6 +226,12 @@ set hlsearch
 nnoremap <Space>n :noh<Return>
 
 
+
+"quick macro when in visual mode to all selected lines
+nnoremap <Space>m :norm 
+xnoremap <Space>m :norm 
+xnoremap <Space>sr :s//g<Left><Left>
+xnoremap <Space>sc :s//gc<Left><Left><Left>
 
 "set the commands to save in history to 1000
 set history=1000

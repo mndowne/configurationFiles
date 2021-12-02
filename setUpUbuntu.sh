@@ -134,6 +134,7 @@ if [[ $yesOrNno == "y" ]]; then
     sudo apt install universal-ctags
     sudo apt install highlight
     sudo apt install tmux
+    sudo apt install fonts-powerline
     echo -e "finished installing packages"
 fi
 

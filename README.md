@@ -56,6 +56,8 @@ may need to go into settings and gnome tweaks to change your settings
 how you like. Also making a custom keyboard short cut in settings to open
 the gnome-terminal --full-screen with CTRL ALT T might be desired.
 
+May need to change the terminal font to DejaVu Sans Mono Book, size 11
+
 -------------------------------------------------------------------------
 ----    Instructions    ---    Instructions    ---   Instructions   -----
 -------------------------------------------------------------------------
