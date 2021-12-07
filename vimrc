@@ -247,6 +247,7 @@ xnoremap <Space>sc :s//gc<Left><Left><Left>
 
 
 :command Vimrc e ~/.vimrc
+:command L w | bd
 
 "Use Space + t to open and close NERDTree
 nnoremap <Space>t :NERDTreeToggle<cr>
