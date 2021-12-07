@@ -2,16 +2,22 @@
 """"""""""""""""""""""""""""""""""""""""
 """           VIM PLUGINS          
 """"""""""""""""""""""""""""""""""""""""
+" Emmet Shortcuts
+let g:user_emmet_mode='n'  "only enable normal mode functions.
+let g:user_emmet_leader_key=','
+
 
 "this is loading my plug ins
 "run   pluginvim   to see plugins
 execute pathogen#infect()
+execute pathogen#helptags()
 
-
+"NEARDTRee neardtree NEARDTREE
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+"ONEDARK onedark Onedark
 " onedark.vim override: Don't set a background color when running in a terminal;
 if (has("autocmd") && !has("gui_running"))
   augroup colorset
@@ -47,9 +53,6 @@ colorscheme onedark
 
 "this configures my jsx syntex to .js files
 let g:jsx_ext_required = 0
-
-"change vim colors
-"//highlight Normal ctermfg=white ctermbg=darkcyan
 
 "add .html syntex highlighting to .ejs files
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -160,10 +163,11 @@ command! -bang -nargs=* GGrep
 "--------------------------------------------------------------------------
 " FZF commands
 
+"ALE ale
 " Disable Ale from checking for errors all the tim
 " I only want Ale to check when the file is saved or opened
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
+"let g:ale_lint_on_text_changed = 'never'
+"let g:ale_lint_on_insert_leave = 0
 
 """"""""""""""""""""""""""""""""""""""""
 """           VIM PLUGINS          
@@ -173,40 +177,7 @@ let g:ale_lint_on_insert_leave = 0
 """    VIM VARIABLES AND REMAPS
 """""""""""""""""""""""""""""""""""""""
 
-
-set number
-set relativenumber
-
-"Change the scroll speed to 6 lines at a time
-nnoremap <C-U> 6<C-Y>
-nnoremap <C-D> 6<C-E>
-
-"to turn off line wrap
-"//set nowrap
-
-"these are tab hot keys. switched these to buffers
-"    nnoremap tn :tabnew<Space>
-"    nnoremap tk :tabnext<CR>
-"    nnoremap tj :tabprev<CR>
-"    nnoremap th :tabfirst<CR>
-"    nnoremap tl :tablast<CR>
-
-"buffer hot keys
-nnoremap tn :e<Space>
-nnoremap tk :bnext<CR>
-nnoremap tj :bprev<CR>
-nnoremap th :b1<CR>
-"nnoremap tl :tablast<CR>
-
-"this allows for hidden buffers. You can edit multiple buffers without saving them
-set hidden
-
-"switching between panes
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
+set omnifunc=syntaxcomplete#Complete
 set autoindent
 
 "this makes tab key X spaces
@@ -225,6 +196,47 @@ set hlsearch
 "Use Space + n to removing highlighting from search
 nnoremap <Space>n :noh<Return>
 
+"to turn off line wrap
+set nowrap
+
+"set the commands to save in history to 1000
+set history=1000
+
+"this allows for hidden buffers. You can edit multiple buffers without saving them
+set hidden
+
+set number
+set relativenumber
+
+"Change the scroll speed to 6 lines at a time
+nnoremap <C-U> 6<C-Y>
+nnoremap <C-D> 6<C-E>
+
+nnoremap gj }
+nnoremap gk {
+
+"AutoComplete set to Tab
+"inoremap <Tab> <C-P>
+
+"these are tab hot keys. switched these to buffers
+"    nnoremap tn :tabnew<Space>
+"    nnoremap tk :tabnext<CR>
+"    nnoremap tj :tabprev<CR>
+"    nnoremap th :tabfirst<CR>
+"    nnoremap tl :tablast<CR>
+
+"buffer hot keys
+nnoremap tn :e<Space>
+nnoremap tk :bnext<CR>
+nnoremap tj :bprev<CR>
+nnoremap th :b1<CR>
+"nnoremap tl :tablast<CR>
+
+"switching between panes
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
 "quick macro when in visual mode to all selected lines
@@ -233,17 +245,11 @@ xnoremap <Space>m :norm
 xnoremap <Space>sr :s//g<Left><Left>
 xnoremap <Space>sc :s//gc<Left><Left><Left>
 
-"set the commands to save in history to 1000
-set history=1000
 
 :command Vimrc e ~/.vimrc
 
 "Use Space + t to open and close NERDTree
 nnoremap <Space>t :NERDTreeToggle<cr>
-
-" Emmet Shortcuts
-let g:user_emmet_mode='n'  "only enable normal mode functions.
-let g:user_emmet_leader_key=','
 
 "Search and replace, search and check
 nnoremap <Space>sr :%s//g<Left><Left>
@@ -260,7 +266,8 @@ nnoremap <Space>fj :Lines<CR>
 "find a string in your command history
 nnoremap <Space>fh :History:<CR>
 
-"""""""""""""""""""""""""""""""""""""""
+
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 """    VIM VARIABLES AND REMAPS
 """""""""""""""""""""""""""""""""""""""
 
@@ -283,10 +290,7 @@ nnoremap <Space>Ell :e ~/.vim/skeletonCode/skeletonArrowFunction.js<CR>
 nnoremap <Space>rfc :-1read ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>:%s/JJJ//g<Left><Left>
 nnoremap <Space>Erfc :e ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>
 
-"""""""""""""""""""""""""""""""""""""""
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 """    VIM SNIPPETS
 """""""""""""""""""""""""""""""""""""""
-
-
-
 

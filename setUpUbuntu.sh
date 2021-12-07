@@ -13,6 +13,7 @@ NOCOLOR='\033[0m'
 #declare variable
 createEnvFile="n"
 yesOrNo="n"
+scriptsDestination=$HOME
 
 # only run this script from its location. do not place in bin.
 
@@ -54,7 +55,7 @@ fi
 
 # Update Configs ?
 ##################
-echo -e "Would you like to update and source .bashrc, .vimrc, .tmux.conf? (y/n)"
+echo -e "Would you like to update and source .bashrc, .vimrc, .tmux.conf and .profile? (y/n)"
 read yesOrNno
 if [[ $yesOrNno == "y" ]]; then
     mkdir -p $HOME/oldConfigs/
@@ -74,6 +75,11 @@ if [[ $yesOrNno == "y" ]]; then
         mv $HOME/.vimrc $HOME/oldConfigs/vimrc
     fi
     cp ./vimrc $HOME/.vimrc
+    if [[ -f $HOME/.profile ]]; then
+        echo -e "Backed up old .profile to oldConfigs/profile"
+        mv $HOME/.profile $HOME/oldConfigs/profile
+    fi
+    cp ./profile $HOME/.profile
 else
     echo -e "Did not update bashrc, vimrc, and tmux.conf"
 fi
@@ -81,15 +87,13 @@ fi
 
 # Clone Scripts ?
 #################
-#
-#
-#
-#
-#
-#
-#
-#
-#
+echo -e "would you like to apt-get install packages? (y/n)"
+read yesOrNno
+if [[ $yesOrNno == "list" ]]; then
+    echo -e "Please specify destination from your $HOME path or leave blank for to clone to your HOME directory."
+    read scriptsDestination
+    git clone git@github.com:mndowne/bin.git $scriptsDestination
+fi
 ##################
 
 
@@ -129,11 +133,18 @@ if [[ $yesOrNno == "list" ]]; then
     read yesOrNno
 fi
 if [[ $yesOrNno == "y" ]]; then
+    echo " "
+    echo -e "installing fzf"
     sudo apt install fzf
+    echo -e "installing ripgrep"
     sudo apt install ripgrep
+    echo -e "installing universal-ctags"
     sudo apt install universal-ctags
+    echo -e "installing highlight"
     sudo apt install highlight
+    echo -e "installing tmux"
     sudo apt install tmux
+    echo -e "installing fonts-powerline"
     sudo apt install fonts-powerline
     echo -e "finished installing packages"
 fi
