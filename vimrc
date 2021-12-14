@@ -1,4 +1,7 @@
 
+"turn filetype plugins on
+filetype plugin on
+
 """"""""""""""""""""""""""""""""""""""""
 """           VIM PLUGINS          
 """"""""""""""""""""""""""""""""""""""""
@@ -231,6 +234,8 @@ nnoremap tk :bnext<CR>
 nnoremap tj :bprev<CR>
 nnoremap th :b1<CR>
 "nnoremap tl :tablast<CR>
+"close a buffer without closing the split
+nnoremap ,d :b#<bar>bd#<CR>
 
 "switching between panes
 nnoremap <C-J> <C-W><C-J>
@@ -247,10 +252,14 @@ xnoremap <Space>sc :s//gc<Left><Left><Left>
 
 
 :command Vimrc e ~/.vimrc
-:command L w | bd
 
 "Use Space + t to open and close NERDTree
 nnoremap <Space>t :NERDTreeToggle<cr>
+
+
+"Use Space + g to open and close git-fugitive
+nnoremap <Space>gt :G<cr>
+nnoremap <Space>gb :Gbrowse<cr>
 
 "Search and replace, search and check
 nnoremap <Space>sr :%s//g<Left><Left>
