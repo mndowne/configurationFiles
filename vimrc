@@ -256,9 +256,14 @@ xnoremap <Space>sc :s//gc<Left><Left><Left>
 "Use Space + t to open and close NERDTree
 nnoremap <Space>t :NERDTreeToggle<cr>
 
+"vim easymotion hot key for
+map <Space>w <Plug>(easymotion-bd-f2)
+nmap <Space>w <Plug>(easymotion-overwin-f2)
+map <Space>j <Plug>(easymotion-j)
+map <Space>k <Plug>(easymotion-k)
 
 "Use Space + g to open and close git-fugitive
-nnoremap <Space>gt :G<cr>
+nnoremap <Space><Space>g :G<cr>
 nnoremap <Space>gb :Gbrowse<cr>
 
 "Search and replace, search and check
@@ -297,7 +302,7 @@ nnoremap <Space>ll :-1read ~/.vim/skeletonCode/skeletonArrowFunction.js<CR>/JJJJ
 nnoremap <Space>Ell :e ~/.vim/skeletonCode/skeletonArrowFunction.js<CR>
 
 """    VIM SNIPPETS REACT
-nnoremap <Space>rfc :-1read ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>:%s/JJJ//g<Left><Left>
+nnoremap <Space>rfc :-1read ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>:%s/JJJ/<c-r>=expand('%:t:r')<CR><CR>
 nnoremap <Space>Erfc :e ~/.vim/skeletonCode/react/statelessFunctionComponent.js<CR>
 
 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
